@@ -1,6 +1,15 @@
 import React from "react";
-
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 export default function Auth(props) {
+  const { uid } = useSelector((state) => state.auth);
+  const history = useHistory();
+  useEffect(() => {
+    if (uid) {
+      history.push("/");
+    }
+  }, [uid]);
   return (
     <>
       {/* <Navbar transparent /> */}

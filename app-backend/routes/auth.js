@@ -1,19 +1,19 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
 const router = express.Router();
 
 // Register Route
-router.post('/register', async (req, res) => {
+router.post("/register", async (req, res) => {
   const { name, email, password, role, branch } = req.body;
 
   try {
     // Check if the user already exists
     let user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ msg: 'User already exists' });
+      return res.status(400).json({ msg: "User already exists" });
     }
 
     // Create new user
@@ -22,32 +22,32 @@ router.post('/register', async (req, res) => {
       email,
       password: await bcrypt.hash(password, 10), // Hash the password
       role,
-      branch: role === 'manager' ? branch : '', // Ensure branch is only for managers
+      branch: role === "manager" ? branch : "", // Ensure branch is only for managers
     });
 
     await user.save();
-    res.status(201).json({ msg: 'User registered successfully' });
+    res.status(201).json({ msg: "User registered successfully" });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).send("Server error");
   }
 });
 
 // Login Route
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     // Find the user by email
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: 'Invalid email or password' });
+      return res.status(400).json({ msg: "Invalid email or password" });
     }
 
     // Check if the password matches
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ msg: 'Invalid email or password' });
+      return res.status(400).json({ msg: "Invalid email or password" });
     }
 
     // Create a JWT payload with user information
@@ -62,8 +62,8 @@ router.post('/login', async (req, res) => {
     // Sign the JWT and send it back
     jwt.sign(
       payload,
-      'yourJWTSecret', // Replace with your JWT secret from environment variables
-      { expiresIn: '1h' },
+      "yourJWTSecret", // Replace with your JWT secret from environment variables
+      { expiresIn: "1h" },
       (err, token) => {
         if (err) throw err;
         res.json({ token, user: payload.user });
@@ -71,7 +71,7 @@ router.post('/login', async (req, res) => {
     );
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).send("Server error");
   }
 });
 

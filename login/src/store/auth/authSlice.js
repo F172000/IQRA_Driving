@@ -13,11 +13,15 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.uid = action.payload.id;
     },
+    setSignInLoader: (state, action) => {
+      state.isSigninLoading = action.payload;
+    },
     resetStore: () => {
       return initialState;
     },
   },
 });
 
-export const { setUserCredentials, resetStore } = authSlice.actions;
+export const { setUserCredentials, resetStore, setSignInLoader } =
+  authSlice.actions;
 export default authSlice.reducer;
