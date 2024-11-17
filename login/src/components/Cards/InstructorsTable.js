@@ -37,7 +37,7 @@ export default function InstructorsTable({ color, title}) {
           (color === "light" ? "bg-white" : "bg-lightBlue-900 text-white")
         }
       >
-        <div className="rounded-t mb-0 py-3 border-0">
+        <div className="rounded-t mb-0 py-3 px-2 border-0">
           <div className="flex flex-wrap justify-between items-center">
             <div className="relative w-full pl-4 max-w-full flex-grow flex-1">
               <h3

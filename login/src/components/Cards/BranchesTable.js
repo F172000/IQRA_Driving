@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FaEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 export default function BranchesTable({ color, title }) {
+  const history = useHistory();
   const branchesData = [
     { id: "ID34567", name: "Golra" },
     { id: "ID34568", name: "Faisalabad" },
@@ -18,7 +20,7 @@ export default function BranchesTable({ color, title }) {
           (color === "light" ? "bg-white" : "bg-lightBlue-900 text-white")
         }
       >
-        <div className="rounded-t mb-0  py-3 border-0">
+        <div className="rounded-t mb-0 px-2  py-3 border-0">
           <div className="flex flex-wrap justify-between items-center">
             <div className="relative w-full pl-4 max-w-full flex-grow flex-1">
               <h3
@@ -31,7 +33,10 @@ export default function BranchesTable({ color, title }) {
               </h3>
             </div>
             <div className="mr-3">
-              <button class="bg-lightBlue-600 text-white text-md font-bold py-2 px-4 rounded focus:outline-none">
+              <button
+                onClick={() => history.push("/add-branches")}
+                class="bg-lightBlue-600 text-white text-md font-bold py-2 px-4 rounded focus:outline-none"
+              >
                 Add
               </button>
             </div>
@@ -97,7 +102,7 @@ export default function BranchesTable({ color, title }) {
                     <FaEye className="w-5 h-5 text-lightBlue-600 cursor-pointer" />
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <MdDelete className="w-5 h-5 text-red-500 cursor-pointer" />
+                    <MdDelete className="w-5 h-5 text-red-500 cursor-pointer" />
                   </td>
                 </tr>
               ))}

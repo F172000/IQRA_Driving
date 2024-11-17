@@ -1,4 +1,7 @@
+import AddBranches from "views/admin/AddBranches";
 import AddInstructor from "views/admin/AddInstructor";
+import AddManager from "views/admin/AddManager";
+import AddVehicle from "views/admin/AddVehicles";
 import Branches from "views/admin/Branches";
 import Cars from "views/admin/Cars";
 import Dashboard from "views/admin/Dashboard";
@@ -54,6 +57,27 @@ let routes = [
     path: "/add-instructors",
     name: "Instructors",
     component: AddInstructor,
+    layout: "admin",
+    isMenu: false,
+  },
+  {
+    path: "/add-vehicles",
+    name: "Vehicles",
+    component: AddVehicle,
+    layout: "admin",
+    isMenu: false,
+  },
+  {
+    path: "/add-branches",
+    name: "Branches",
+    component: AddBranches,
+    layout: "admin",
+    isMenu: false,
+  },
+  {
+    path: "/add-manager",
+    name: "Managers",
+    component: AddManager,
     layout: "admin",
     isMenu: false,
   },

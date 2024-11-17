@@ -3,7 +3,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // components
 
-export default function CardInstructor() {
+export default function CardVehicle() {
   const history = useHistory();
   return (
     <>
@@ -11,18 +11,16 @@ export default function CardInstructor() {
         <div className="rounded-t bg-white mb-0 px-6 py-6">
           <div className="flex items-center ">
             <IoArrowBackOutline
-              onClick={() => history.push("/instructors")}
+              onClick={() => history.push("/vehicles")}
               className="w-5 h-5 font-bold text-lightBlue-600 mr-2 cursor-pointer"
             />
-            <h6 className="text-blueGray-700 text-xl font-bold">
-              Add Instructor
-            </h6>
+            <h6 className="text-blueGray-700 text-xl font-bold">Add Vehicle</h6>
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
           <form>
             <div className="flex flex-wrap mt-6">
-              <div className="w-full lg:w-6/12 px-4">
+              <div className="w-full px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -32,12 +30,13 @@ export default function CardInstructor() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Enter instructor name"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    placeholder="Enter vehicle name"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none w-full ease-linear transition-all duration-150"
+                   
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-6/12 px-4">
+              {/* <div className="w-full lg:w-6/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -47,8 +46,8 @@ export default function CardInstructor() {
                   </label>
                   <input
                     type="email"
-                    placeholder="Enter instructor email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="jesse@example.com"
                   />
                 </div>
               </div>
@@ -63,11 +62,8 @@ export default function CardInstructor() {
                   <select
                     id="branch-select"
                     className="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    defaultValue="Golra"
                   >
-                    <option value="" disabled>
-                      Select Branch
-                    </option>
                     <option value="Golra">Golra</option>
                     <option value="G10">G10</option>
                     <option value="Saddar">Saddar</option>
@@ -86,17 +82,14 @@ export default function CardInstructor() {
                   <select
                     id="car-select"
                     className="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none  w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    defaultValue="Alto"
                   >
-                    <option value="" disabled>
-                      Select Vehicle
-                    </option>
                     <option value="Alto">Alto</option>
                     <option value="Civic">Civic</option>
                     <option value="Toyota">Toyota</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="flex justify-end items-center px-4 py-3">
               <button class="bg-lightBlue-600 text-white text-md font-bold py-2 px-4 rounded focus:outline-none">
